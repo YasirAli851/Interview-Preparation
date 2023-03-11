@@ -1,0 +1,239 @@
+Question:-
+Josh went to the market to buy N apples. He found two shops, shop A and B, where apples were being sold in lots. He can buy any number of the complete lot(s) but not loose apples. He is confused with the price and wants you to figure out the minimum cost to buy exactly N apples. Write an algorithm for Josh to calculate the minimum cost to buy exactly N apples.
+
+Input Format:
+
+The first line of the input consists of an integer – N, representing the total number of apples that Josh wants to buy.
+The second line consists of two space-separated positive integers – M1 and P1, representing the number of apples in a lot and the lot’s price at shop A, respectively.
+The third line consists of two space-separated positive integers-M2 and P2, representing the number of apples in a lot and lot’s price at shop B, respectively.
+Output Format:
+
+Print a positive integer representing the minimum price at which Josh can buy the apples.
+
+Sample Input:
+
+19
+
+3 10
+
+4 15
+
+Sample Output:
+
+65
+
+----------------------x---------------------------------------
+MY code in C++ (PLEASE CONTINUE TO void solve() function):-
+
+/*Yasir Ali*/
+#include<bits/stdc++.h>
+using namespace std;
+#define nl "\n"
+#define ll long long
+#define sz length()
+#define PI 3.1415926535897932384626433832795
+#define MOD 1000000007
+#define FOR(i,a,b) for(ll i=a;i<=b;i++)
+const ll INF=1e9+7;
+bool isPrime(ll x)
+{
+   bool check=true;
+   for(ll i=2;i<x;i++)
+   {
+      if(x%i==0)
+      {
+         check=false;
+         break;
+      }
+   }
+   if(check && x!=1)
+   {
+      return true;
+   }
+   else
+   {
+      return false;
+   }
+}
+
+//To take space separated string
+ // while (true)
+ //    {
+ //      cin>>z;
+ //      s+=z;
+ //      if(cin.peek()=='\n')
+ //      break;
+ //    }
+
+ll gcd(ll x,ll y)
+{
+   int final=-1;
+   for(int i=2;i<x || i<y;i++)
+   {
+      if(x%i==0 && y%i==0)
+      {
+         final=i;
+      }
+   }
+   return final;
+}
+void removeSpaces(string &str)
+{
+    int n = str.length();
+    int i = 0, j = -1;
+    bool spaceFound = false;
+    while (++j < n && str[j] == ' ');
+    while (j < n)
+    {
+        if (str[j] != ' ')
+        {
+            
+            if ((str[j] == '.' || str[j] == ',' ||
+                 str[j] == '?') && i - 1 >= 0 &&
+                 str[i - 1] == ' ')
+                str[i - 1] = str[j++];
+ 
+            else
+               
+                str[i++] = str[j++];
+ 
+           
+            spaceFound = false;
+        }
+        else if (str[j++] == ' ')
+        {
+            
+            if (!spaceFound)
+            {
+                str[i++] = ' ';
+                spaceFound = true;
+            }
+        }
+    }
+    if (i <= 1)
+        str.erase(str.begin() + i, str.end());
+    else
+        str.erase(str.begin() + i - 1, str.end());
+}
+void solve() 
+{
+    int n,m1,p1,m2,p2;
+    cin>>n>>m1>>p1>>m2>>p2;
+    int j=n;
+    int cost1=0;  //cost of buying apples from shop 1 only.
+    int cost2=0;  //cost of buying apples from shop 2 only.
+    int result1=0; //total cost of buying more apples from shop 1 and less apple from shop 2.
+    int result2=0; //total cost of buying more apples from shop 2 and less apple from shop 1.
+
+    while(n>m1 || n>m2) //This is to check that the value of remaining apples is either more than 
+    // m1 or more than m2. And this is to check all the costs in terms of more of shop 1 and less 
+    // of shop 2.                
+    {
+        if(n-m1 >m1 || n-m1>m2) //we will deduct the apples(in terms of shop 1) only if remaining apples 
+        //after deductions is either more than m1 or m2.and we will add the cost of shop 1 in cost1.
+        {   cost1+=p1;
+            n-=m1;
+        }
+        else
+        {
+            break; //when we see that after deduction the number of remaining apples is becoming less 
+            //than either m1 and m2.we won't deduct appless and break and further check that if 
+            //remaining apples is divisible by either m1 or m2 or not.
+        }
+    }
+    while(j>m1 || j>m2) //This is to check that the value of remaining apples is either more than m1 
+    //or more than m2. And this is to check all the cost in terms of more of shop 2 and less of shop 1.
+    {
+        if(j-m2>m1 || j-m2>m2)//we will deduct the apples(in terms of shop 2) only if remaining apples 
+        //after deductions is either more than m1 or m2 and we will add the cost of shop 2 in cost2.
+        {
+            cost2+=p2;
+            j-=m2;
+        }
+        else
+        {
+            break;//when we see that after deduction the number of remaining apples is becoming less 
+            //than either from m1 or from m2.we won't deduct appless and will break and further check 
+            //that if remaining appless is divisible by either m1 or m2 or not.
+        }
+    }
+    int trc=0;
+    if(n%m1==0)//we will check if remaining apples are divisible by apples from shop 1 or not.(in terms 
+    //of deduction of more apples from shop 1).
+    {
+        int quot=n/m1;//this will tell us about the remaining combination of apples that is required to complete the purchase.
+        result1=cost1+p1*quot;//so, we will add the cost for buying appless from shop 1 and cost of buying the remaining combination of appless from shop 1 (by multiplying the price of shop 1 with combintations).
+        trc++; //increment trc to ensure that we have found successful combination.
+    }
+    if(n%m2==0)//we will check if remaining apples are divisible by apples from shop 2 or not.(in terms 
+    //of deduction of more apples from shop 1).
+    {
+        int quot=n/m2;//this will tell us about the remaining combination of apples that is required to complete the purchase.
+        result1=cost1+p2*quot;//so, we will add the cost for buying appless from shop 1 and cost of buying the remaining combination of appless from shop 2 (by multiplying the price of shop 2 with combintations).
+        trc++;//increment trc to ensure that we have found successful combination.
+    }
+    if(j%m1==0)//we will check if remaining apples are divisible by apples from shop 1 or not.(in terms  
+    //of deduction of more apples from shop 2).
+    {
+        int quot=j/m1;//this will tell us about the remaining combination of apples that is required to complete the purchase.
+        result2=cost2+p1*quot; //so, we will add the cost for buying appless from shop 2 and cost of buying the remaining combination of appless from shop 1 (by multiplying the price of shop 1 with combintations).
+        trc++;//increment trc to ensure that we have found successful combination.
+    }
+    if(j%m2==0)//we will check if remaining apples are divisible by apples from shop 2 or not.(in terms 
+    //of deduction of more apples from shop 2).
+    {
+        int quot=j/m2;//this will tell us about the remaining combination of apples that is required to complete the purchase.
+        result2=cost2+p2*quot;//so, we will add the cost for buying appless from shop 2 and cost of buying the remaining combination of appless from shop 2 (by multiplying the price of shop 2 with combintations).
+        trc++;
+    }
+    if(trc!=0) //this is keeping the track that we have got atleast one combination to purchase the 
+    //required apples either from shop 1 or shop 2.
+    {
+        if(result1>0 && result2>0) // if both the results are more than 0 that means we have found 
+        //successful combinations of appless from both the shops.
+        {
+            int min_costt=min(result1,result2);//finding minimum cost from both the shops.
+            cout<<min_costt<<endl;  //so,we will print the minimum cost from both shops.
+        }
+        else //this means we have got sucessful combination of apples from only one shop.
+        {
+            if(result1>0) //this means we have found the successful combination only from shop 1.
+            {
+                cout<<result1<<endl; //printing the cost to buy appless from that shop 1 only.(here cost 
+                //doesn't matter because we have got required apples only from shop 1).
+            }
+            else//this means we have found the successful combination only from shop 2.
+            {
+                cout<<result2<<endl; //printing the cost to buy appless from that shop 2 only.(here cost 
+                //doesn't matter because we have got required apples only from shop 2).
+            }
+
+        }
+    }
+    else //not found any combination either from shop 1 or shop 2.
+    {
+        cout<<"invalid input"<<endl;// printing invalid input.
+    }
+
+   
+   
+    
+}  
+int main()
+{
+  int tt;
+  cin>>tt;
+   
+  while(tt--)
+  {
+      solve();
+  }
+   clock_t start, end;
+    start = clock();
+    end = clock();
+    double time_taken= double(end - start)/ double(CLOCKS_PER_SEC);
+    cerr << "Execution time: " << time_taken<< " secs";
+ 
+    return 0;
+
+}

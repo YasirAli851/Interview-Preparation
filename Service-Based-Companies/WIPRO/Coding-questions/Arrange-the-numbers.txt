@@ -1,0 +1,182 @@
+Question:-
+You are playing an online game. In the game, a list of N numbers is given. The player has to arrange the numbers so that all the odd numbers of the list come after the even numbers. Write an algorithm to arrange the given list such that all the odd numbers of the list come after the even numbers.
+
+Input
+
+The first line of the input consists of an integer numbers, representing the size of the list(N).
+The second line of the input consists of N space-separated integers representing the values of the list
+Output
+
+Print N space-separated integers such that all the odd numbers of the list come after the even numbers
+
+Example
+
+Sample Input
+
+8
+
+10 98 3 33 12 22 21 11
+
+Sample Output
+
+10 98 12 22 3 33 21 11.
+
+
+----------------x---------------------------x----------------
+
+MY CODE(PLEASE REFER void solve() function):-
+
+/*Yasir Ali*/
+#include<bits/stdc++.h>
+using namespace std;
+#define nl "\n"
+#define ll long long
+#define sz length()
+#define PI 3.1415926535897932384626433832795
+#define MOD 1000000007
+#define FOR(i,a,b) for(ll i=a;i<=b;i++)
+const ll INF=1e9+7;
+bool isPrime(ll x)
+{
+   bool check=true;
+   for(ll i=2;i<x;i++)
+   {
+      if(x%i==0)
+      {
+         check=false;
+         break;
+      }
+   }
+   if(check && x!=1)
+   {
+      return true;
+   }
+   else
+   {
+      return false;
+   }
+}
+
+//To take space separated string
+ // while (true)
+ //    {
+ //      cin>>z;
+ //      s+=z;
+ //      if(cin.peek()=='\n')
+ //      break;
+ //    }
+
+ll gcd(ll x,ll y)
+{
+   int final=-1;
+   for(int i=2;i<x || i<y;i++)
+   {
+      if(x%i==0 && y%i==0)
+      {
+         final=i;
+      }
+   }
+   return final;
+}
+void removeSpaces(string &str)
+{
+    int n = str.length();
+    int i = 0, j = -1;
+    bool spaceFound = false;
+    while (++j < n && str[j] == ' ');
+    while (j < n)
+    {
+        if (str[j] != ' ')
+        {
+            
+            if ((str[j] == '.' || str[j] == ',' ||
+                 str[j] == '?') && i - 1 >= 0 &&
+                 str[i - 1] == ' ')
+                str[i - 1] = str[j++];
+ 
+            else
+               
+                str[i++] = str[j++];
+ 
+           
+            spaceFound = false;
+        }
+        else if (str[j++] == ' ')
+        {
+            
+            if (!spaceFound)
+            {
+                str[i++] = ' ';
+                spaceFound = true;
+            }
+        }
+    }
+    if (i <= 1)
+        str.erase(str.begin() + i, str.end());
+    else
+        str.erase(str.begin() + i - 1, str.end());
+}
+void solve() 
+{
+    int n; //Size of vector
+    cin>>n;//Taking the input of size of vector.
+    vector<int>vec(n);
+    for(int i=0;i<n;i++)//Taking the inputs of n numbers.
+    {
+        cin>>vec[i]; 
+    }
+    vector<int>aux(n); //This is a temproary vector where we will store all the even //numbers first and then odd numbers.
+    
+    int c=0; //This "c" will be the index in temproary vector.
+    for(int i=0;i<n;i++)
+    {
+        if(vec[i]%2==0) //As we are first storing all the even numbers in the 
+            //vector,we will check if the element present in that index of vec is //even or not.
+        {
+            aux[c]=vec[i]; //Yes,that number was even that's why we have reached here 
+            //and putting that even number in temproary vector and incrementing "c" //to store next even number in temproary vector.
+            c++;
+        }
+        else
+        {
+            continue; //We will continue to search for next element to find that //whether that number is even or not.if yes then again we will put that //even number in our temproary vector.
+        }
+    }
+    for(int i=0;i<n;i++)
+    {
+        if(vec[i]%2!=0)//As we storing all the odd numbers after even numbers in the 
+            //vector,we will check if the element present in that index of vec is //odd or not.
+        {
+            aux[c]=vec[i];//Yes,that number was odd that's why we have reached here 
+            //and putting that odd number in temproary vector and incrementing "c" //to store next odd number in temproary vector.
+            c++;
+        }
+        else
+        {
+            continue;//We will continue to search for next element to find that //whether that number is odd or not.if yes then again we will put that //odd number in our temproary vector.
+        }
+    }
+    for(int i=0;i<n;i++)
+    {
+        vec[i]=aux[i]; //initialising all the numbers of the temporary vector to our original vector vec. 
+        cout<<vec[i]<<" "; //Printing the original vector.
+    }
+}  
+int main()
+{
+  int tt;
+  cin>>tt;
+   
+  while(tt--)
+  {
+      solve();
+  }
+   clock_t start, end;
+    start = clock();
+    end = clock();
+    double time_taken= double(end - start)/ double(CLOCKS_PER_SEC);
+    cerr << "Execution time: " << time_taken<< " secs";
+ 
+    return 0;
+
+}

@@ -1,0 +1,119 @@
+QUESTION:-
+
+Write a program to implement a bubble sort algorithm for sorting the elements of an array. We are given with a array of N elements and we need to sort them in ascending order. But in this question we need to use Bubble sort, to sort the given array.
+
+Input Format:
+
+The first line corresponds to the size of an array.
+The second line corresponds to the elements.
+Output Format:
+
+Print the N elements of the array in ascending order.
+
+Sample Input:
+
+6
+
+11 15 26 38 9 10 
+
+Sample Output:
+
+9 10 11 15 26 38
+
+Explanation :
+
+Here, we have 6 elements and array elements are 11 15 26 38 9 10, Sorted array in ascending order will be 9 10 11 15 26 38.
+
+
+MY CODE WITH EXPLANATION:-
+
+    int n;
+    cin>>n;
+    vector<int>vec(n);
+    for(int i=0;i<n;i++)
+    {
+        cin>>vec[i];
+    }
+    for(int i=0;i<n-1;i++) //This loop is used for passes.
+    {
+        for(int j=0;j<n-i-1;j++) //This loop will check the swapping condition.The iteration of this loop will decrease by 1 in each passes.
+        {
+            if(vec[j+1]<vec[j])
+            {
+                int temp=vec[j];
+                vec[j]=vec[j+1];
+                vec[j+1]=temp;
+            }
+
+        }
+    }
+    for(int i=0;i<n;i++)
+    {
+        cout<<vec[i]<<" ";
+    }
+    
+
+    //suppose we have an array 42,65,1,32,3.So,n=5.
+    /*
+    FIRST PASS:-
+    so,in first pass,the value of i is equal to 0 (i=0).
+    
+    so,we will iterate from 0 to less then n-i-1 (5-0-1)=4.
+
+    index(0,1)
+    42,65,1,32,3 -> (42,65,1,32,3) no swap as 42 < 65. 
+    
+    index(1,2)
+    42,65,1,32,3 -> (42,1,65,32,3) swapped as 65 > 1.
+    
+    index(2,3)
+    42,1,65,32,3 -> (42,1,32,65,3) swapped as 65 > 32.
+    
+    index(3,4)
+    42,1,32,65,3 -> (42,1,32,3,65) swapped as 65 > 3.
+    
+    We can see that after doing first pass number with maximum value has reached its correct position.
+
+    SECOND PASS:-
+    Now,in second pass,the value of i is equal to 1 (i=1).
+
+    so,we will iterate from 0 to less than n-i-1 (5-1-1)=3.
+    
+    index(0,1)
+    42,1,32,3,65 -> (1,42,32,3,65) swapped as 42 > 1.
+
+    index (1,2)
+    1,42,32,3,65 -> (1,32,42,3,65) swapped as 42 > 32.
+
+    index(2,3)
+    1,32,42,3,65 -> (1,32,3,42,65) swapped as 43 > 3.
+
+    We can see that after doing second pass,the second maximum value is at its correct position.
+
+    THIRD PASS:-
+    Now,in third pass,the value of i is equal to 2 (i=2).
+
+    so,we will iterate from 0 to less than n-i-1 (5-2-1)=2.
+
+    index(0,1)
+    1,32,3,42,65 -> (1,32,3,42,65) no swap as 1 < 32
+
+    index(1,2)
+    1,32,3,42,65 -> (1,3,32,42,65) swapped as 32 > 3.
+
+    so,now we can see that after doing third pass,the third maximum value is at its correct position.
+
+    FOURTH PASS:-
+
+    Now,in fourth pass,the value of i is equal to 3 (i=3).
+
+    so,we will iterate from 0 to less then n-i-1 (5-3-1)=1.
+
+    index(0,1)
+    1,3,32,42,65 -> (1,3,32,42,65) no swap as 1 < 32.
+
+    now,we can see that our n was equal to 5 (n=5) and we have got our all the values from the index n-1 to 1 in their correct position,so one last element at index 0 is automatically there in its correct position.
+    
+    So,number of passes needed for bubble sort is N-1 pass.  
+
+    */
