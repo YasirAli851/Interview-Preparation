@@ -114,3 +114,113 @@ int main()
     s.get_det();
     s.put_details();
 }
+
+Local class:-A local class is a class that is declared inside a function.and the methods of a local class cannot be dfined outside
+the class if the class is local.Local obejct is an object that is created inside the funtion in which the class is declared.
+
+#include<iostream>
+using namespace std;
+void fun()
+{
+    class animal
+    {
+        private:
+        int tails;
+        public:
+        void show()
+        {
+            cout<<"this is local class"<<endl;
+        }
+    };
+    animal a1; //this a1 will be considered as local object.
+    a1.show();
+}
+int main(){
+    fun();
+}
+
+Global class:- A global class is a class that is not defined inside any funtion and accessible throughout the program and 
+global object is an object that is created outside the class as well as outside the main function but an object must be used 
+inside a function.
+
+#include<iostream>
+using namespace std;
+void sshow();
+class animal
+{
+    private:
+    int tails;
+    public:
+    void show()
+    {
+        cout<<"this is global class ";
+    }
+};
+animal a1;
+int main(){
+    sshow();
+}
+void sshow()
+{
+    a1.show();
+}
+
+
+Parameterised constructor is a constructor that contains parameter and it gets called
+when an object is having same argument as of parameters.
+
+
+#include<iostream>
+using namespace std;
+class student
+{
+    private:
+    int s_id;
+    string s_name;
+    public:
+    student(int id,string n)
+    {
+        s_id=id;
+        s_name=n;
+    }
+    void show()
+    {
+        cout<<s_id<<" "<<s_name<<endl;
+    }
+};
+int main()
+{
+    student s1(42,"pritam");
+    student s2(53,"prachi");
+    student s3(65,"raj");
+    s1.show();
+    s2.show();
+    s3.show();
+}
+
+Default/non-parameterised constructor is a constructor which gets called automatically whenever an
+object is created.
+
+#include<iostream>
+using namespace std;
+class student
+{
+    private:
+    int s_id;
+    string s_name;
+    public:
+    student()
+    {
+        s_id=40;
+        s_name="pritam";
+    }
+    void show()
+    {
+        cout<<"student id is "<<s_id<<" and student name is "<<s_name<<endl;
+    }
+};
+int main()
+{
+    student s1;
+    s1.show();
+}
