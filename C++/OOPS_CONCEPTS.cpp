@@ -226,9 +226,11 @@ int main()
     s2.show();
     s3.show();
 }
-
+---------------------------------------------x---------------------------------------x--------------------------------------------
 /*
-Copy constructor:-Copy constructor is a constructor that is used to copy the data of an existing object on an another object.In copy constructor,we pass an existing object as an argument to the constructor either by reference or by address to copy the data of passed object on an another object.
+Copy constructor:-Copy constructor is a constructor that is used to copy the data of an existing object on an another object.
+In copy constructor,we pass an existing object as an argument to the constructor either by reference or by address to copy the 
+data of passed object on an another object.
 */  
 
 //Code of copy constructor:-
