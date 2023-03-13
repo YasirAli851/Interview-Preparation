@@ -227,3 +227,42 @@ int main()
     s3.show();
 }
 
+/*
+Copy constructor:-Copy constructor is a constructor that is used to copy the data of an existing object on an another object.In copy constructor,we pass an existing object as an argument to the constructor either by reference or by address to copy the data of passed object on an another object.
+*/  
+
+//Code of copy constructor:-
+#include<iostream>
+using namespace std;
+class student
+{
+    private:
+    int student_id;
+    string student_name;
+    public:
+    student()
+    {
+        student_id=0;
+        student_name="anyone";
+    }
+    student(int s_id,string s_name)
+    {
+        student_id=s_id;
+        student_name=s_name;
+    }
+    student(student *s)
+    {
+        student_id=s->student_id;
+        student_name=s->student_name;
+    }
+    void show()
+    {
+        cout<<"The name of the student is "<<student_name<<" and the id of the student is "<<student_id<<endl;
+    }
+};
+int main()
+{
+    student s1(32,"ayush");
+    student s2(&s1);
+    s2.show();
+}
