@@ -273,7 +273,8 @@ int main()
 
 /*
 
-Destructor:-It is a special member function that gets called whenever an object goes out of scope.If destructor will not be declared by the programmer, then compiler will automatically generate default destructor.
+Destructor:-It is a special member function that gets called whenever an object goes out of scope.If destructor will not be declared by the programmer
+then compiler will automatically generate default destructor.
 
 */
 
@@ -359,13 +360,17 @@ int main()
 
 /*
 
-On the above code, class student is friend of class show_student_data.So,class show_student_data can access all the private and protected members of class student with the help of an object of class student.
+On the above code, class student is friend of class show_student_data.So,class show_student_data can access all the private and protected members of 
+class student with the help of an object of class student.
 
 */
 -------------------------------------x-----------------x-------------------
 /*
 
-Inline functions:-inline function is a feature related to functions in c++ that reduces the execution time and increases the speed of the program.An inline function is a function that replicates itself in the line where it has been called.We can make a function inline if it does not contain any if else/loops and the body of the inline function must be very short and simple.If the function is made inline and if it contains any if else/loops then compiler will not consider the function as an inline functions and work like a normal function.
+Inline functions:-inline function is a feature related to functions in c++ that reduces the execution time and increases the speed of the program.
+An inline function is a function that replicates itself in the line where it has been called.We can make a function inline if it does not contain any if
+else/loops and the body of the inline function must be very short and simple.If the function is made inline and if it contains any if else/loops then 
+compiler will not consider the function as an inline functions and work like a normal function.
 Code for the inline function is shown below.
 
 */
@@ -384,7 +389,7 @@ int main()
 
 /*
 ----------------------------x------------------x-------------------------
-Array of objects:-By using array of objects, we can store many objects in a single variable.
+Array of objects:-By using array of objects, we can store many objects in a single variable.Code of array of object is shown below.
 
 */
 
@@ -431,6 +436,7 @@ int main()
 /*
 Memory management operators:-We have 2 memory management operators NEW and DELETE.
 NEW and DELETE operators are used allocate and deallocate objects dynamically.
+Code of use of NEW and DELETE operator is shown below:-
 */
 #include<iostream>
 using namespace std;
