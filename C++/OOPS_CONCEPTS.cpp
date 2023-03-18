@@ -226,7 +226,7 @@ int main()
     s2.show();
     s3.show();
 }
----------------------------------------------x---------------------------------------x--------------------------------------------
+-------------------------------------------x---------------------------------------x----
 /*
 Copy constructor:-Copy constructor is a constructor that is used to copy the data of an existing object on an another object.
 In copy constructor,we pass an existing object as an argument to the constructor either by reference or by address to copy the 
@@ -267,4 +267,197 @@ int main()
     student s1(32,"ayush");
     student s2(&s1);
     s2.show();
+}
+
+-------------------x---------------------------x-------------------------
+
+/*
+
+Destructor:-It is a special member function that gets called whenever an object goes out of scope.If destructor will not be declared by the programmer, then compiler will automatically generate default destructor.
+
+*/
+
+#include<iostream>
+using namespace std;
+class student
+{
+    private:
+    int s_id;
+    string s_name;
+    public:
+    student(int id,string n)
+    {
+        s_id=id;
+        s_name=n;
+    }
+    ~student()
+    {
+        cout<<"Destructor called for student name "<<s_name<<" and student id "<<s_id<<endl;
+    }
+};
+int main()
+{
+    student s1(12,"yasir");
+    student s2(31,"Ankit");
+    student s3(21,"Pratik");
+    student s4(41,"akash");
+}
+
+/*
+output:-
+
+Destructor called for student name akash and student id 41
+Destructor called for student name Pratik and student id 21
+Destructor called for student name Ankit and student id 31
+Destructor called for student name yasir and student id 12
+
+as we can see in the output,destructor is called first for the object that is created
+at last.
+*/
+--------------------x----------------------x-------------------------
+/*
+
+Friend class:-If a class C is a friend of an another class B, then all the private and protected member of the class C can be accessed by class B.
+A friend class in C++ can access all the private and protected members of the class in which it is declared as a friend.
+
+*/
+
+#include<iostream>
+using namespace std;
+class student
+{
+    private:
+    int roll;
+    int student_id;
+    string student_name;
+    public:
+    student(int r,int s_id,string n)
+    {
+        roll=r;
+        student_id=s_id;
+        student_name=n;
+    }
+    friend class show_student_data;
+};
+class show_student_data
+{
+    public:
+    void show_data(student s)
+    {
+        cout<<"The name of the student is "<<s.student_name<<endl;
+        cout<<"The id of the student is "<<s.student_id<<endl;
+        cout<<"The roll number of the student is "<<s.roll<<endl;
+    }
+};
+int main()
+{
+   student raj(12,902,"Raj");
+   show_student_data show1;
+   show1.show_data(raj);
+
+}
+
+/*
+
+On the above code, class student is friend of class show_student_data.So,class show_student_data can access all the private and protected members of class student with the help of an object of class student.
+
+*/
+-------------------------------------x-----------------x-------------------
+/*
+
+Inline functions:-inline function is a feature related to functions in c++ that reduces the execution time and increases the speed of the program.An inline function is a function that replicates itself in the line where it has been called.We can make a function inline if it does not contain any if else/loops and the body of the inline function must be very short and simple.If the function is made inline and if it contains any if else/loops then compiler will not consider the function as an inline functions and work like a normal function.
+Code for the inline function is shown below.
+
+*/
+#include<iostream>
+using namespace std;
+inline int add(int a,int b)
+{
+    return a+b;
+}
+int main()
+{
+    int res=add(10,20);
+    cout<<"This is an inline function "<<endl;
+    cout<<"The addition of two numbers is "<<res<<endl;
+}
+
+/*
+----------------------------x------------------x-------------------------
+Array of objects:-By using array of objects, we can store many objects in a single variable.
+
+*/
+
+#include<iostream>
+using namespace std;
+int cnt1=0;
+int cnt2=0;
+class student
+{
+    private:
+    int s_id;
+    string s_name;
+    public:
+    void getData()
+    {
+        cnt1++;
+        cout<<"enter the name of the student "<<cnt1<<endl;
+        cin>>s_name;
+        cout<<"enter the id of the student "<<cnt1<<endl;
+        cin>>s_id;
+    }
+    void showData()
+    {
+        cnt2++;
+        cout<<"The name of the student"<<cnt2<<" is "<<s_name<<endl;
+        cout<<"The id of the student"<<cnt2<<" is "<<s_id<<endl;
+    }
+};
+int main()
+{
+    student s[5];
+    for(int i=0;i<5;i++)
+    {
+        s[i].getData();
+    }
+    for(int i=0;i<5;i++)
+    {
+        s[i].showData();
+    }
+}
+
+------------------------x--------------------------------x-------------------
+
+/*
+Memory management operators:-We have 2 memory management operators NEW and DELETE.
+NEW and DELETE operators are used allocate and deallocate objects dynamically.
+*/
+#include<iostream>
+using namespace std;
+class student
+{
+    private:
+    int s_id;
+    string s_name;
+    public:
+    void getData()
+    {
+        cout<<"enter the s_id "<<endl;
+        cin>>s_id;
+        cout<<"enter s name"<<endl;
+        cin>>s_name;
+    }
+    void showData()
+    {
+        cout<<"the name is "<<s_name<<endl;
+        cout<<"The id is "<<s_id<<endl;
+    }
+
+};
+int main()
+{
+    student *s1=new student();
+    s1->getData();
+    s1->showData();
+    delete s1;
 }
