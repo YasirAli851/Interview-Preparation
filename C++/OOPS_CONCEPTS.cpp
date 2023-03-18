@@ -435,7 +435,7 @@ int main()
 
 /*
 Memory management operators:-We have 2 memory management operators NEW and DELETE.
-NEW and DELETE operators are used allocate and deallocate objects dynamically.
+NEW and DELETE operators are used to allocate and deallocate objects dynamically.
 Code of use of NEW and DELETE operator is shown below:-
 */
 #include<iostream>
