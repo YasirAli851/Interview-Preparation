@@ -65,7 +65,8 @@ identity:-nitish's car is similar piyush's car but states different.
 
 -------------------------------x----------------------------------------x---------------------
 Q:-what is the use of scope resolution operator in c++.
-Ans:-There are many uses of scope resolution operator in c++,but one basic use of scope resolution operator is to define the member function outside of the class using the scope resolution operator.
+Ans:-There are many uses of scope resolution operator in c++,but one basic use of scope resolution operator is to define the member function outside 
+of the class using the scope resolution operator.
 
 Lets have a look on the code:-
 
@@ -273,8 +274,8 @@ int main()
 
 /*
 
-Destructor:-It is a special member function that gets called whenever an object goes out of scope.If destructor will not be declared by the programmer
-then compiler will automatically generate default destructor.
+Destructor:-It is a special member function that gets called whenever an object goes out of scope.If destructor will not be declared by the 
+programmer then compiler will automatically generate default destructor.
 
 */
 
@@ -468,11 +469,12 @@ int main()
     delete s1;
 }
 
-Inheritance:-In programming, Inheritance is a feature in which we can access the property of an existing class on an another class. 
+//Inheritance:-In programming, Inheritance is a feature in which we can access the property of an existing class on an another class. 
 
-Types of inheritance:-
+//Types of inheritance:-
 
-1)single level inheritance:-It is a type of inheritance where there is only one base class and only one derived class.In this type of inheritance, only one derived class is there which accesses the property of base class.
+//1)single level inheritance:-It is a type of inheritance where there is only one base class and only one derived class.In this type of inheritance, only one derived class is there which accesses the property of base class.
+
 #include<iostream>
 using namespace std;
 class base. //base class 
@@ -496,7 +498,7 @@ int main()
 
 
 
-2)Multilevel inheritance:-In this type of inheritance, there is only one base class and more than one derived class.We can say that, one class inherits the property another class which is further inherited by another classes.
+//2)Multilevel inheritance:-In this type of inheritance, there is only one base class and more than one derived class.We can say that, one class inherits the property another class which is further inherited by another classes.
 
 #include<iostream>
 using namespace std;
@@ -527,7 +529,7 @@ int main()
    s1.show();
 }
 
-3)Multiple inheritance:-It is a type of inheritance in which there is more than one base class and only one derived class.
+//3)Multiple inheritance:-It is a type of inheritance in which there is more than one base class and only one derived class.
 
 #include<iostream>
 using namespace std;
@@ -541,7 +543,8 @@ class father //base class
     public:
     string eyes_colour="black";
 };
-class son:public father,public grandfather //Here,the derived class is son which is accessing the property of more than one base class(father and grandfather).
+class son:public father,public grandfather //Here,the derived class is son which is accessing the property of more than one base 
+    //class(father and grandfather).
 {
     public:
     double height=6.2;
@@ -559,7 +562,7 @@ int main()
    s1.show();
 } 
 
-4)Hybrid inheritance:-In this inheritance, we can combine two different types of inheritance in a single program.
+//4)Hybrid inheritance:-In this inheritance, we can combine two different types of inheritance in a single program.
 
 #include<iostream>
 using namespace std;
@@ -593,21 +596,21 @@ int main()
     d3.show();
 }
 
---------------------------------------------x--------------------------------------------------------x-------------------------------------------------------------------
-
+//--------------------------------------------x--------------------------------------------------------x-------------------------------------------------------------------
+/*
 Access modes In inheritance:-
 1)Public 2)Private 3)Protected.
 
 Note:-Private members of the base class can never be inherited in any mode.
 
-1)Public mode:-When we inherit the property of base class publically, then the public members of base class becomes the public member of the derived class and
-Protected members of base class becomes protected member of the derived class.
+1)Public mode:-When we inherit the property of base class publically, then the public members of base class becomes the public member of the derived 
+class and Protected members of base class becomes protected member of the derived class.
 
-2)Protected mode:-When we inherit the property of base class protectedly,then the public members of base class becomes the protected member of the derived class and
-Protected members of base class becomes protected member of the derived class.
+2)Protected mode:-When we inherit the property of base class protectedly,then the public members of base class becomes the protected member of the 
+derived class and Protected members of base class becomes protected member of the derived class.
 
-3)Private mode:-When we inherit the property of base class privately, then the public members of base class becomes the private member of the derived class and
-Protected members of base class becomes private member of the derived class.
+3)Private mode:-When we inherit the property of base class privately, then the public members of base class becomes the private member of the derived
+class and Protected members of base class becomes private member of the derived class.
 
 ____________________________________________________________________________
 Base class  |                         Derived class                         | 
@@ -622,11 +625,14 @@ Private     |      not inherited     not inherited   not inherited          |
 Protected   |      protected         not inherited   protected              |
 ____________|_______________________________________________________________|
 
+*/
 
 
----------------------------------------x------------------------------------------------x----------------------------------------------------------------------
-Constructor in derived class:-In this concept, we basically understands the hierarchy of constructor calls in inheritance.Suppose we have three class A B and C.
-So, if we inherit the property of class A into B and then property class B into C and then when we create an object of class C then constructor for class A will be called first then constructor of class B will be called and then at the end the constructor of class C will be called at last.
+//---------------------------------------x------------------------------------------------x------------------------------------------------------
+//Constructor in derived class:-In this concept, we basically understands the hierarchy of constructor calls in inheritance.Suppose we have three class A B and C.
+//So, if we inherit the property of class A into B and then property class B into C and then when we create an object of class C then 
+//constructor for class A will be called first then constructor of class B will be called and then at the end the constructor of class C will be 
+//called at last.
 
 #include<iostream>
 using namespace std;
@@ -661,7 +667,7 @@ int main()
 
 
 //one more example of constructors in derived class.In this example, we are giving the values to the constructor of class base1 and class base2 with
-the help of the constructor of the derived class that is inheriting the properties of both class base1 and base2.
+//the help of the constructor of the derived class that is inheriting the properties of both class base1 and base2.
 
 #include<iostream>
 using namespace std;
@@ -702,7 +708,8 @@ int main()
 
 --------------------------------------------------------x-----------------------------------------------------x---------------------------------
 
-Function overriding:-It is concept of runtime polymorphism(discussed later in this section) in which we redefine the function of base class in the derived class.
+//Function overriding:-It is concept of runtime polymorphism(discussed later in this section) in which we redefine the function of base class in the 
+//derived class.
 
 #include<iostream>
 using namespace std;
