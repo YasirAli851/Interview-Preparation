@@ -625,3 +625,107 @@ ____________|_______________________________________________________________|
 
 
 ---------------------------------------x------------------------------------------------x----------------------------------------------------------------------
+Constructor in derived class:-In this concept, we basically understands the hierarchy of constructor calls in inheritance.Suppose we have three class A B and C.
+So, if we inherit the property of class A into B and then property class B into C and then when we create an object of class C then constructor for class A will be called first then constructor of class B will be called and then at the end the constructor of class C will be called at last.
+
+#include<iostream>
+using namespace std;
+class A
+{
+    public:
+    A()
+    {
+        cout<<"inside the constructor of class A"<<endl;
+    }
+};
+class B:public A
+{
+    public:
+    B()
+    {
+        cout<<"inside the constructor of class B"<<endl;
+    }
+};
+class C:public B
+{
+    public:
+    C()
+    {
+        cout<<"inside the constructor of class C"<<endl;
+    }
+};
+int main()
+{
+    C c1;
+}
+
+
+//one more example of constructors in derived class.In this example, we are giving the values to the constructor of class base1 and class base2 with
+the help of the constructor of the derived class that is inheriting the properties of both class base1 and base2.
+
+#include<iostream>
+using namespace std;
+class base1
+{
+    public:
+    int a;
+    base1(int i)
+    {
+        a=i;
+        cout<<"inside constructor of class base 1 and value of a is "<<a<<endl;
+    }
+};
+class base2
+{
+    public:
+    int b;
+    base2(int j)
+    {
+        b=j;
+        cout<<"inside constructor of class base 2 and the value of b is "<<b<<endl;
+    }
+};
+class derived:public base1,public base2
+{
+    public:
+    int c;
+    derived(int val1,int val2,int val3):base2(val2),base1(val3)
+    {
+        c=val1;
+        cout<<"inside constructor of derived class and the value of c is "<<c<<endl;
+    }   
+};
+int main()
+{
+    derived d(40,30,20);
+}
+
+--------------------------------------------------------x-----------------------------------------------------x---------------------------------
+
+Function overriding:-It is concept of runtime polymorphism(discussed later in this section) in which we redefine the function of base class in the derived class.
+
+#include<iostream>
+using namespace std;
+class base
+{
+    public:
+    void func()
+    {
+        cout<<"Hello"<<endl;
+    }
+};
+class derived:public base
+{
+    public:
+    void func() //redefination of function func in the derived class.
+    {
+        cout<<"Hello world"<<endl;
+    }
+};
+int main()
+{
+    derived d;
+    d.func();
+}
+
+-----------------------------------------------x-------------------------------------------x--------------------------------------
