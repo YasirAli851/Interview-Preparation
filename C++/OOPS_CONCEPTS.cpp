@@ -467,3 +467,161 @@ int main()
     s1->showData();
     delete s1;
 }
+
+Inheritance:-In programming, Inheritance is a feature in which we can access the property of an existing class on an another class. 
+
+Types of inheritance:-
+
+1)single level inheritance:-It is a type of inheritance where there is only one base class and only one derived class.In this type of inheritance, only one derived class is there which accesses the property of base class.
+#include<iostream>
+using namespace std;
+class base. //base class 
+{
+    public:
+    int a=10;
+};
+class derived:public base //Inheriting the property of base class in the derived class publically.
+{
+    public:
+    void show()
+    {
+        cout<<"The value of A is "<<a<<endl;
+    }
+};
+int main()
+{
+    derived d;
+    d.show();
+}
+
+
+
+2)Multilevel inheritance:-In this type of inheritance, there is only one base class and more than one derived class.We can say that, one class inherits the property another class which is further inherited by another classes.
+
+#include<iostream>
+using namespace std;
+class grandfather  //base class for class father
+{
+    public:
+    string eyes_colour="blue";
+};
+class father:public grandfather //derived class and (base class for class son).
+{
+    public:
+    string hair_colour="white";
+};
+class son:public father //derived class and accessing the property of class father
+{
+    public:
+    double height=6.2;
+    void show()
+    {
+        cout<<"the hair colour of son is "<<hair_colour<<endl;
+        cout<<"The eyes's colour of son is "<<eyes_colour<<endl;
+        cout<<"the height of the son is "<<height<<endl;
+    }
+};
+int main()
+{
+   son s1;
+   s1.show();
+}
+
+3)Multiple inheritance:-It is a type of inheritance in which there is more than one base class and only one derived class.
+
+#include<iostream>
+using namespace std;
+class grandfather //base class 
+{
+    public:
+    string hair_colour="white";
+};
+class father //base class
+{
+    public:
+    string eyes_colour="black";
+};
+class son:public father,public grandfather //Here,the derived class is son which is accessing the property of more than one base class(father and grandfather).
+{
+    public:
+    double height=6.2;
+    string hair_colour="black";
+    void show()
+    {
+        cout<<"the hair colour of son is "<<hair_colour<<endl;
+        cout<<"The eyes's colour of son is "<<eyes_colour<<endl;
+        cout<<"the height of the son is "<<height<<endl;
+    }
+};
+int main()
+{
+   son s1;
+   s1.show();
+} 
+
+4)Hybrid inheritance:-In this inheritance, we can combine two different types of inheritance in a single program.
+
+#include<iostream>
+using namespace std;
+class base   
+{
+    public:
+    int a=10;
+};
+class derived_1:public base  //single inheritance is happening here.
+{
+    public:
+    int b=20;
+};
+class derived_2
+{
+    public:
+    int c=30;
+};
+class derived_3:public derived_2,public derived_1  //Multiple inheritance is happening here.
+{
+    public:
+    int d=40;
+    void show()
+    {
+        cout<<"the addition is "<<a+b+c+d<<endl;
+    }
+};
+int main()
+{
+    derived_3 d3;
+    d3.show();
+}
+
+--------------------------------------------x--------------------------------------------------------x-------------------------------------------------------------------
+
+Access modes In inheritance:-
+1)Public 2)Private 3)Protected.
+
+Note:-Private members of the base class can never be inherited in any mode.
+
+1)Public mode:-When we inherit the property of base class publically, then the public members of base class becomes the public member of the derived class and
+Protected members of base class becomes protected member of the derived class.
+
+2)Protected mode:-When we inherit the property of base class protectedly,then the public members of base class becomes the protected member of the derived class and
+Protected members of base class becomes protected member of the derived class.
+
+3)Private mode:-When we inherit the property of base class privately, then the public members of base class becomes the private member of the derived class and
+Protected members of base class becomes private member of the derived class.
+
+____________________________________________________________________________
+Base class  |                         Derived class                         | 
+____________|_______________________________________________________________|           
+            |       public              private      Protected              |
+            |_______________________________________________________________|
+            |                                                               |
+Public      |      public            not inherited   protected              |  
+            |                                                               |
+Private     |      not inherited     not inherited   not inherited          |
+            |                                                               |
+Protected   |      protected         not inherited   protected              |
+____________|_______________________________________________________________|
+
+
+
+---------------------------------------x------------------------------------------------x----------------------------------------------------------------------
