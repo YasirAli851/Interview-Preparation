@@ -477,7 +477,7 @@ int main()
 
 #include<iostream>
 using namespace std;
-class base. //base class 
+class base //base class 
 {
     public:
     int a=10;
@@ -630,7 +630,7 @@ ____________|_______________________________________________________________|
 
 //---------------------------------------x------------------------------------------------x------------------------------------------------------
 //Constructor in derived class:-In this concept, we basically understands the hierarchy of constructor calls in inheritance.Suppose we have three class A B and C.
-//So, if we inherit the property of class A into B and then property class B into C and then when we create an object of class C then 
+//So, if we inherit the property of class A into B and then property of class B into C and then when we create an object of class C then 
 //constructor for class A will be called first then constructor of class B will be called and then at the end the constructor of class C will be 
 //called at last.
 
