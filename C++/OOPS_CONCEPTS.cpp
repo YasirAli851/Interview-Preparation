@@ -736,3 +736,243 @@ int main()
 }
 
 -----------------------------------------------x-------------------------------------------x--------------------------------------
+/*
+Ambiguity resolution using scope resolution operartor.
+what is ambiguity?
+When we create two classes DERIVED1 and DERIVED2 by inheriting the property of one class called class Base and then again we create one more class called Derived3 by inheriting the property of class Derived1 and class Derived2 then ambiguity arisies because base class's property has been transferred to class derived1 and derived2 and when we are accessing the property of class derived1 and derived2 in derived3,then the property of base class is transferred in class derived 3 two times because the property of base's class is transferred two times in class derived3 through class derived1 and derived2.
+
+*/
+Ambiguity resolution using scope resolution operator.
+
+#include<iostream>
+using namespace std;
+class base
+{
+    public:
+    int a;
+    base()
+    {
+        a=10;
+    }
+    void show()
+    {
+        cout<<"Show function of class base has been called ";
+    }
+};
+class derived1:public base
+{
+    public:
+    void show()
+    {
+        cout<<"Show function of class derived1 has been called ";
+    }
+};
+class derived2:public base
+{
+    public:
+    void show()
+    {
+        cout<<"Show function of class derived2 has been called ";
+    }
+};
+class derived3:public derived1,public derived2
+{
+    
+};
+int main()
+{
+    derived3 d;
+    d.derived2::show(); 
+    /* telling the compiler to execute the show function of class derived2
+    because derived2 is getting inherited in class derived3 so with help of the object of class
+    derived3 we are accessing class derived2 and executing the show function of class derived2. 
+    */
+}
+
+ambiguity resolution using virtual base class:-
+
+#include<iostream>
+using namespace std;
+class base
+{
+    public:
+    void show()
+    {
+        cout<<"inside show function of class base "<<endl;
+    }
+};
+class derived1:virtual public base
+{
+    
+};
+class derived2:virtual public base
+{
+    
+};
+class derived3:public derived1,public derived2
+{
+    
+};
+int main()
+{
+    derived3 d;
+    d.show();
+}
+
+-----------------------x--------------------------------x-----------------------------------------------------------
+
+/*Nesting of class:-Nesting of class allows us to create a class inside an existing class.If a class is declared or defined inside an existing class, then we have to create an instance of that existing class in which another class is declared and defined.So,with the help of an object of existing class, we can access the class that is there inside an existing class.
+*/
+Ways of implementing nesting of classes:-
+
+Way 1:
+
+#include<iostream>
+using namespace std;
+class base //existing class
+{
+    public:
+    class B //new class inside an existing class.
+    {
+        private:
+        int a;
+        public:
+        void get_data()
+        {
+            cout<<"enter the value of a "<<endl;
+            cin>>a;
+        }
+        void put_data()
+        {
+            cout<<"the value of a is "<<a<<endl;
+        }
+    };
+};
+int main()
+{
+    /*
+    Inside this main function, we are going to class B from class base with the 
+    Help of scope resolution operator and after going to class B,we have created an object of class B named as b1 and with the help of b1,we are accessing the member functions of class B.
+    */
+    base::B b1;
+    b1.get_data();
+    b1.put_data();
+}
+
+
+Way 2:-
+
+#include<iostream>
+using namespace std;
+class base //existing class
+{
+    private:
+    int c;
+    public:
+    base()
+    {
+        c=20;
+        cout<<"the value of C is "<<c<<endl;
+    }
+    class B //new class inside an existing class.
+    {
+        private:
+        int a;
+        public:
+        void get_data()
+        {
+            cout<<"enter the value of a "<<endl;
+            cin>>a;
+        }
+        void put_data()
+        {
+            cout<<"the value of a is "<<a<<endl;
+        }
+    };
+    public:
+    B b1;  /* we have created an object of class B named as b1 and this object will be considered as public member of class base */
+};
+int main()
+{
+    /* here inside main function, we have created an object of class base and we are accessing the object b1 of class B with the help of the object of class base because b1 is a public member of class base.so,after accessing b1 with the help of the object of class base, we are accessing the member function of class B as b1 is an object of class B. */
+
+    base b;
+    b.b1.get_data();
+    b.b1.put_data();
+}
+
+----------------------------------------------x---------------------------x------------------------------------x-----------------------------x----------------------------
+/*
+Polymorphism:-In object orientation,it is a feature that follows the concept of  "same name different works".
+
+we have two types of polymorphism:-
+
+1)Compile time polymorphism:-Function overloading is the best example of compile time polymorphism.
+*/
+
+//Function overloading:-In function overloading,we create more than one function of same name but keeping number of parameters,data types of parameters,and arrangement of parameters different and functions will be called based on the passing of arguments from the main function.
+
+#include<iostream>
+using namespace std;
+//1st calculation function
+int calculation(int a,int b)
+{
+    return a*b;
+}
+//2nd calculation function
+int calculation(int a,int b,int c)
+{
+    return a+b+c;
+}
+//3rd calculation function
+double calculation(double a,double b)
+{
+    return a/b;
+}
+int main()
+{
+    int result1=calculation(10,20,30); //2nd calculation function will be called as return type of function,data types of arguments,arrangement of arguments and numbers of arguments are matching with the parameters of the 2nd calculation function.
+
+    int result2=calculation(10,30); //1st calculation function will be called as return type,data types of arguments,arrangement of arguments and numbers of arguments are matching with the parameters of the 1st calculation function.
+
+    double result3=calculation(10.0,5.0); //3rd calculation function will be called as return type,data types of arguments,arrangement of arguments and numbers of arguments are matching with the parameters of the 3rd calculation function.
+
+    cout<<"The value of result 1 is "<<result1<<endl;
+    cout<<"The value of result 2 is "<<result2<<endl;
+    cout<<"The value of result 3 is "<<result3<<endl;
+    /*
+    This code is an example of polymorphism by parameters too.
+    */
+}
+
+
+// Run time polymorphism:-Function overriding is best example of run time polymorphism.
+
+//Function overriding:-It is concept of runtime polymorphism in which we redefine the function of base class in the derived class.
+
+#include<iostream>
+using namespace std;
+class base
+{
+    public:
+    void func()
+    {
+        cout<<"Hello"<<endl;
+    }
+};
+class derived:public base
+{
+    public:
+    void func() //redefination of function func in the derived class.
+    {
+        cout<<"Hello world"<<endl;
+    }
+};
+int main()
+{
+    derived d;
+    d.func();
+}
+
+
+------------------------------------x--------------------------x---------------------------------
