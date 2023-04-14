@@ -473,7 +473,8 @@ int main()
 
 //Types of inheritance:-
 
-//1)single level inheritance:-It is a type of inheritance where there is only one base class and only one derived class.In this type of inheritance, only one derived class is there which accesses the property of base class.
+//1)single level inheritance:-It is a type of inheritance where there is only one base class and only one derived class.In this type of inheritance, 
+//only one derived class is there which accesses the property of base class.
 
 #include<iostream>
 using namespace std;
@@ -498,7 +499,8 @@ int main()
 
 
 
-//2)Multilevel inheritance:-In this type of inheritance, there is only one base class and more than one derived class.We can say that, one class inherits the property another class which is further inherited by another classes.
+//2)Multilevel inheritance:-In this type of inheritance, there is only one base class and more than one derived class.We can say that, one class
+//inherits the property another class which is further inherited by another classes.
 
 #include<iostream>
 using namespace std;
@@ -629,10 +631,10 @@ ____________|_______________________________________________________________|
 
 
 //---------------------------------------x------------------------------------------------x------------------------------------------------------
-//Constructor in derived class:-In this concept, we basically understands the hierarchy of constructor calls in inheritance.Suppose we have three class A B and C.
-//So, if we inherit the property of class A into B and then property of class B into C and then when we create an object of class C then 
-//constructor for class A will be called first then constructor of class B will be called and then at the end the constructor of class C will be 
-//called at last.
+//Constructor in derived class:-In this concept, we basically understands the hierarchy of constructor calls in inheritance.Suppose we have three 
+//class A B and C. So, if we inherit the property of class A into B and then property of class B into C and then when we create an object of class 
+//C then constructor for class A will be called first then constructor of class B will be called and then at the end the constructor of class C will
+//be called at last.
 
 #include<iostream>
 using namespace std;
@@ -739,7 +741,11 @@ int main()
 /*
 Ambiguity resolution using scope resolution operartor.
 what is ambiguity?
-When we create two classes DERIVED1 and DERIVED2 by inheriting the property of one class called class Base and then again we create one more class called Derived3 by inheriting the property of class Derived1 and class Derived2 then ambiguity arisies because base class's property has been transferred to class derived1 and derived2 and when we are accessing the property of class derived1 and derived2 in derived3,then the property of base class is transferred in class derived 3 two times because the property of base's class is transferred two times in class derived3 through class derived1 and derived2.
+When we create two classes DERIVED1 and DERIVED2 by inheriting the property of one class called class Base and then again we create one more class 
+called Derived3 by inheriting the property of class Derived1 and class Derived2 then ambiguity arisies because base class's property has been 
+transferred to class derived1 and derived2 and when we are accessing the property of class derived1 and derived2 in derived3,then the property of 
+base class is transferred in class derived 3 two times because the property of base's class is transferred two times in class derived3 through class
+derived1 and derived2.
 
 */
 Ambiguity resolution using scope resolution operator.
@@ -789,7 +795,7 @@ int main()
     */
 }
 
-ambiguity resolution using virtual base class:-
+//ambiguity resolution using virtual base class:-
 
 #include<iostream>
 using namespace std;
@@ -821,7 +827,9 @@ int main()
 
 -----------------------x--------------------------------x-----------------------------------------------------------
 
-/*Nesting of class:-Nesting of class allows us to create a class inside an existing class.If a class is declared or defined inside an existing class, then we have to create an instance of that existing class in which another class is declared and defined.So,with the help of an object of existing class, we can access the class that is there inside an existing class.
+/*Nesting of class:-Nesting of class allows us to create a class inside an existing class.If a class is declared or defined inside an existing class,
+then we have to create an instance of that existing class in which another class is declared and defined.So,with the help of an object of existing 
+class, we can access the class that is there inside an existing class.
 */
 Ways of implementing nesting of classes:-
 
@@ -852,7 +860,8 @@ int main()
 {
     /*
     Inside this main function, we are going to class B from class base with the 
-    Help of scope resolution operator and after going to class B,we have created an object of class B named as b1 and with the help of b1,we are accessing the member functions of class B.
+    Help of scope resolution operator and after going to class B,we have created an object of class B named as b1 and with the help of b1,we are 
+    accessing the member functions of class B.
     */
     base::B b1;
     b1.get_data();
@@ -910,7 +919,8 @@ we have two types of polymorphism:-
 1)Compile time polymorphism:-Function overloading is the best example of compile time polymorphism.
 */
 
-//Function overloading:-In function overloading,we create more than one function of same name but keeping number of parameters,data types of parameters,and arrangement of parameters different and functions will be called based on the passing of arguments from the main function.
+//Function overloading:-In function overloading,we create more than one function of same name but keeping number of parameters,data types of 
+//parameters,and arrangement of parameters different and functions will be called based on the passing of arguments from the main function.
 
 #include<iostream>
 using namespace std;
@@ -931,11 +941,14 @@ double calculation(double a,double b)
 }
 int main()
 {
-    int result1=calculation(10,20,30); //2nd calculation function will be called as return type of function,data types of arguments,arrangement of arguments and numbers of arguments are matching with the parameters of the 2nd calculation function.
+    int result1=calculation(10,20,30); //2nd calculation function will be called as return type of function,data types of arguments,arrangement of 
+    //arguments and numbers of arguments are matching with the parameters of the 2nd calculation function.
 
-    int result2=calculation(10,30); //1st calculation function will be called as return type,data types of arguments,arrangement of arguments and numbers of arguments are matching with the parameters of the 1st calculation function.
+    int result2=calculation(10,30); //1st calculation function will be called as return type,data types of arguments,arrangement of arguments and
+    //numbers of arguments are matching with the parameters of the 1st calculation function.
 
-    double result3=calculation(10.0,5.0); //3rd calculation function will be called as return type,data types of arguments,arrangement of arguments and numbers of arguments are matching with the parameters of the 3rd calculation function.
+    double result3=calculation(10.0,5.0); //3rd calculation function will be called as return type,data types of arguments,arrangement of arguments 
+    //and numbers of arguments are matching with the parameters of the 3rd calculation function.
 
     cout<<"The value of result 1 is "<<result1<<endl;
     cout<<"The value of result 2 is "<<result2<<endl;
