@@ -961,7 +961,7 @@ int main()
 
 // Run time polymorphism:-Function overriding is best example of run time polymorphism.
 
-//Function overriding:-It is concept of runtime polymorphism in which we redefine the function of base class in the derived class.
+//Function overriding:-It is concept of runtime polymorphism in which we redefine the function of base class in the derived class
 
 #include<iostream>
 using namespace std;
