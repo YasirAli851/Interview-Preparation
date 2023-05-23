@@ -748,7 +748,7 @@ base class is transferred in class derived 3 two times because the property of b
 derived1 and derived2.
 
 */
-Ambiguity resolution using scope resolution operator.
+// Ambiguity resolution using scope resolution operator.
 
 #include<iostream>
 using namespace std;
@@ -989,3 +989,284 @@ int main()
 
 
 ------------------------------------x--------------------------x------------------------
+/*
+operator overloading:-By using the operator overloading,we can use operator for those purpose for which it has not been made.
+for an example,we can overload (+) operator to add two objects.
+*/
+//Binary operating overloading(+):-
+#include<iostream>
+using namespace std;
+class add
+{
+    public:
+    int num1;
+    int num2;
+    add(){}
+    add(int a,int b)
+    {
+        num1=a;
+        num2=b;
+    }
+    add operator+(add a1)
+    {   add ad;
+        ad.num1=num1+a1.num1;
+        ad.num2=num2+a1.num2;
+        return ad;
+    }
+    void show()
+    {
+        cout<<"The value of num1 is "<<num1<<" and the value of num2 is "<<num2<<endl;
+    }
+};
+int main()
+{
+    add a1(10,20);
+    add b1(30,40);
+    add c1=a1.operator+(b1);
+    //here,we have three objects a1,b1 and c1.We have values in a1 and b1 and with the help of the operator overloading,we are adding the value of num1 and num2 of both the objects a1 and b1 and storing their sum in an another object c1.
+    c1.show();
+}
+
+// overloading preincrement unary operator
+#include<iostream>
+using namespace std;
+class increment
+{
+    public:
+    int num1;
+    increment(){}
+    increment(int a)
+    {
+        num1=a;
+    }
+    increment operator++()
+    {   
+        increment i;
+        i.num1=++num1;
+        return i;
+    }
+    void show()
+    {
+       cout<<"The value of num1 is "<<num1<<endl;
+    }
+};
+int main()
+{
+    increment i1(10);
+    increment i2;
+    i2=++i1;
+    i2.show();
+    
+}
+
+// overloading postincrement unary operator
+
+#include<iostream>
+using namespace std;
+class increment
+{
+    public:
+    int num1;
+    increment(){}
+    increment(int a)
+    {
+        num1=a;
+    }
+    increment operator++(int a)
+    {   
+        increment i;
+        num1++;
+        i.num1=num1;
+        return i;
+    }
+    void show()
+    {
+       cout<<"The value of num1 is "<<num1<<endl;
+    }
+};
+int main()
+{
+    increment i1(10);
+    increment i2;
+    i2=i1++;
+    i2.show();
+}
+
+//overloading insertion(<<) and extraction(>>) operator.
+
+#include<iostream>
+using namespace std;
+class ope_ov
+{
+    public:
+    int a;
+    int b;
+    friend istream &operator>>(istream &in,ope_ov &ob);
+    friend ostream &operator<<(ostream &out,const ope_ov &ob);
+};
+istream &operator>>(istream &in,ope_ov &ob)
+{
+    cout<<"enter the value of a "<<endl;
+    in>>ob.a;
+    cout<<"enter the value of b"<<endl;
+    in>>ob.b;
+    return in;
+}
+ostream &operator<<(ostream &out,const ope_ov &ob)
+{
+    out<<"The value of a is "<<ob.a<<" and the value of b is "<<ob.b<<endl;
+    return out;
+}
+int main()
+{
+    ope_ov ov1;
+    cin>>ov1;
+    cout<<ov1;
+}
+
+//Pointer to an object:-
+#include<iostream>
+using namespace std;
+class student
+{
+    public:
+    int age;
+    string name;
+    public:
+    void get_data()
+    {
+        cout<<"enter your name "<<endl;
+        cin>>name;
+        cout<<"enter your age "<<endl;
+        cin>>age;
+    }
+    void show_data()
+    {
+        cout<<"The name of the student is "<<name<<endl;
+        cout<<"The age of the student is "<<age<<endl;
+    }
+};
+int main()
+{
+    student s1;
+    student *obj;
+    obj=&s1;
+    obj->get_data();
+    obj->show_data();
+}
+
+//This pointer is a pointer that can be called inside struct,union and non-static member function of a class.With the help of this pointer,we can get the address of the object from which the non static member function has been called.
+
+//uses of this pointer:-
+//1)When the name of the local variable is same as data member's name.
+#include<iostream>
+using namespace std;
+class student
+{
+    private:
+    int student_id;
+    int student_roll;
+    public:
+    void get_data(int student_id,int student_roll)
+    {
+        this->student_id=student_id; 
+        this->student_roll=student_roll;
+        //in left hand side we have used "this",so,in "this" pointer,the address of the object is stored from which "get_data" function has been called,that means "this" pointer is having the address of object s1.now,look at the function's parameters,the name of the parameter is same as name of the data members,here ambiguity arises,so i have used this->student_id and this->student_roll so that the value of function's parameters(student_id and student_roll) will go inside object s1's student_id and s1's student_roll.
+    }
+    void show_data()
+    {
+        cout<<"The id of the student is "<<student_id<<endl;
+        cout<<"The roll of the student is "<<student_roll<<endl;
+    }
+};
+int main()
+{
+    student s1;
+    s1.get_data(24,254);
+    s1.show_data();
+}
+
+//2)Method chaining:-It simply means calling multiple methods using the same object and its reference.
+
+#include<iostream>
+using namespace std;
+class student
+{
+    private:
+    int s_roll;
+    int s_id;
+    public:
+    student& set_roll(int roll)
+    {
+        s_roll=roll;
+        return *this;
+    }
+    student& set_student_id(int id)
+    {
+        s_id=id;
+        return *this;
+    }
+    void show_data()
+    {
+        cout<<"The roll of the student is "<<s_roll<<endl;
+        cout<<"The id of the student is "<<s_id<<endl;
+    }
+};
+int main()
+{
+    student s1;
+    s1.set_roll(10).set_student_id(326);
+    s1.show_data();
+}
+
+//Virtual functions:
+//Suppose we have two classes,one is base class and another is derived class,When we create a pointer of base class and on that pointer when we store the address of object of derived class and whenever we call the member function using that pointer then the member functions of base's class gets called because the pointer is of base class,but we have stored the address of object of derived class in that base class's pointer so that member function of derived class should be called right?but member function of base class has been called,so,we will make the function of base class as virtual function so that despite of having a pointer of base class,the member function of derived class will be called because the pointer of base class is storing the address of object of derived class.
+
+#include<iostream>
+using namespace std;
+class A
+{
+    public:
+    virtual void fun()
+    {
+        cout<<"This is fun of class A "<<endl;
+    }
+};
+class B:public A
+{
+    public:
+    void fun()
+    {
+        cout<<"This is fun of class B "<<endl;
+    }
+};
+int main()
+{
+    A *a1;
+    B b1;
+    a1=&b1;
+    a1->fun();
+}
+
+//Pure virtual function:pure virtual function is a virtual function that ends with (=0).if a class is having atleast one pure virtual function then that class will become abstract class.Abstract class is a class whose member functions must be defined inside the derived class otherwise that derived class will also become abstract class.An abstract class is a class whose object cannot be created and member functions of abstract class must be defined inside derived class.
+
+#include<iostream>
+using namespace std;
+class A
+{
+    public:
+    virtual void fun()=0; //fun is a pure virtual function that made this class A an abstract class.
+};
+class B:public A
+{
+    public:
+    void fun() //function fun of class A has been defined here.
+    {
+        cout<<"Inside derived class "<<endl;
+    }
+};
+int main()
+{
+    B b1;
+    b1.fun();
+}
