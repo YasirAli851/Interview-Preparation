@@ -903,7 +903,9 @@ class base //existing class
 };
 int main()
 {
-    /* here inside main function, we have created an object of class base and we are accessing the object b1 of class B with the help of the object of class base because b1 is a public member of class base.so,after accessing b1 with the help of the object of class base, we are accessing the member function of class B as b1 is an object of class B. */
+    /* here inside main function, we have created an object of class base and we are accessing the object b1 of class B with the help of the object of class base because 
+    b1 is a public member of class base.so,after accessing b1 with the help of the object of class base, we are accessing the member function of class B as b1 is an object 
+    of class B. */
 
     base b;
     b.b1.get_data();
@@ -1023,7 +1025,8 @@ int main()
     add a1(10,20);
     add b1(30,40);
     add c1=a1.operator+(b1);
-    //here,we have three objects a1,b1 and c1.We have values in a1 and b1 and with the help of the operator overloading,we are adding the value of num1 and num2 of both the objects a1 and b1 and storing their sum in an another object c1.
+    //here,we have three objects a1,b1 and c1.We have values in a1 and b1 and with the help of the operator overloading,we are adding the value of num1 and num2 of both 
+    //the objects a1 and b1 and storing their sum in an another object c1.
     c1.show();
 }
 
@@ -1155,7 +1158,8 @@ int main()
     obj->show_data();
 }
 
-//This pointer is a pointer that can be called inside struct,union and non-static member function of a class.With the help of this pointer,we can get the address of the object from which the non static member function has been called.
+//This pointer is a pointer that can be called inside struct,union and non-static member function of a class.With the help of this pointer,we can get the address of the 
+//object from which the non static member function has been called.
 
 //uses of this pointer:-
 //1)When the name of the local variable is same as data member's name.
@@ -1171,7 +1175,10 @@ class student
     {
         this->student_id=student_id; 
         this->student_roll=student_roll;
-        //in left hand side we have used "this",so,in "this" pointer,the address of the object is stored from which "get_data" function has been called,that means "this" pointer is having the address of object s1.now,look at the function's parameters,the name of the parameter is same as name of the data members,here ambiguity arises,so i have used this->student_id and this->student_roll so that the value of function's parameters(student_id and student_roll) will go inside object s1's student_id and s1's student_roll.
+        //in left hand side we have used "this",so,in "this" pointer,the address of the object is stored from which "get_data" function has been called,that means "this" 
+        //pointer is having the address of object s1.now,look at the function's parameters,the name of the parameter is same as name of the data members,here ambiguity 
+        //arises,so i have used this->student_id and this->student_roll so that the value of function's parameters(student_id and student_roll) will go inside object s1's 
+        //student_id and s1's student_roll.
     }
     void show_data()
     {
@@ -1220,7 +1227,11 @@ int main()
 }
 
 //Virtual functions:
-//Suppose we have two classes,one is base class and another is derived class,When we create a pointer of base class and on that pointer when we store the address of object of derived class and whenever we call the member function using that pointer then the member functions of base's class gets called because the pointer is of base class,but we have stored the address of object of derived class in that base class's pointer so that member function of derived class should be called right?but member function of base class has been called,so,we will make the function of base class as virtual function so that despite of having a pointer of base class,the member function of derived class will be called because the pointer of base class is storing the address of object of derived class.
+//Suppose we have two classes,one is base class and another is derived class,When we create a pointer of base class and on that pointer when we store the address of object 
+//of derived class and whenever we call the member function using that pointer then the member functions of base's class gets called because the pointer is of base class,but 
+//we have stored the address of object of derived class in that base class's pointer so that member function of derived class should be called right?but member function of 
+//base class has been called,so,we will make the function of base class as virtual function so that despite of having a pointer of base class,the member function of derived 
+//class will be called because the pointer of base class is storing the address of object of derived class.
 
 #include<iostream>
 using namespace std;
@@ -1248,7 +1259,9 @@ int main()
     a1->fun();
 }
 
-//Pure virtual function:pure virtual function is a virtual function that ends with (=0).if a class is having atleast one pure virtual function then that class will become abstract class.Abstract class is a class whose member functions must be defined inside the derived class otherwise that derived class will also become abstract class.An abstract class is a class whose object cannot be created and member functions of abstract class must be defined inside derived class.
+//Pure virtual function:pure virtual function is a virtual function that ends with (=0).if a class is having atleast one pure virtual function then that class will become 
+//abstract class.Abstract class is a class whose member functions must be defined inside the derived class otherwise that derived class will also become abstract class.
+//An abstract class is a class whose object cannot be created and member functions of abstract class must be defined inside derived class.
 
 #include<iostream>
 using namespace std;
