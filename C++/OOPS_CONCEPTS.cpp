@@ -1,7 +1,7 @@
 What is class?
 Ans:-a class is a collection of data members and member functions.
 What is an object?
-Ans:-An object is something that contains all the characteristics that is there inside a class.
+Ans:-An object is something that contains all the characteristics that is there inside a class .
 
 #include <iostream>
 using namespace std;
