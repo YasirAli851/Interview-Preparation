@@ -1296,7 +1296,7 @@ using namespace std;
 int main()
 {
     //declaring a string variable.
-    string name="Shariqua hazra";
+    string name="preeti";
     cout<<"The value inside name is "<<name<<endl;
 }
 
