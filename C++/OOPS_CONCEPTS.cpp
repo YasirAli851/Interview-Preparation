@@ -1434,7 +1434,7 @@ throw:-The use of throw is to throw the exception.
 
 catch:-the catch block allows us to define a block which should be executed if there would be any exception in the code that is there inside try block.
 
-handling array index out of bound exception:-
+handling array index out of bound exception:
 
 #include<iostream>
 using namespace std;
