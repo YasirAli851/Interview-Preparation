@@ -1425,3 +1425,83 @@ int main()
     o.close();//closing the file.
 }
 
+-----------------------------x-------------------------------x--------------------------------------
+Exception handling:-Exception is an abnormal situation that happens during run time of the program.So,in order to handle those abnormal situation,we use a concept called exception handling.
+
+try block:-It is a block where the code must be written so that if any exception occurs then we will be able to handle that exception using throw and catch keywords.
+
+throw:-The use of throw is to throw the exception.
+
+catch:-the catch block allows us to define a block which should be executed if there would be any exception in the code that is there inside try block.
+
+handling array index out of bound exception:-
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int arr[]={1,2,4,6,10};
+    int s=5;
+    int ind=5;
+    try
+    {
+        if(ind>=s)
+        {
+            throw (ind);
+        }
+        cout<<"The value at index "<<ind<<" is "<<arr[ind]<<endl;
+    }
+    catch(int exc)
+    {
+        cout<<"value at index "<<exc<<" is not available "<<endl;
+    }
+
+}
+
+handling division by zero error:-
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int a=10,b=0;
+    try
+    {
+        if(b==0)
+        {
+            throw "cannot divide by zero";
+        }
+        cout<<"the value after division is "<<a/b;
+    }
+    catch(const char *exc)
+    {
+        cout<<"The type of exception that is caught is "<<exc<<endl;
+    }
+}
+
+catch(...):-this is catch all block which can catch any type of exception.see an example below:-
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int age=17;
+    try
+    {
+        if(age<18)
+        {
+            throw (age);
+        }
+        cout<<"You can vote "<<endl;
+    }
+    catch(const char *exc)
+    {
+        cout<<"cannot vote as age is "<<exc<<endl;
+    }
+    catch(...)
+    {
+        cout<<"Cannot vote as age is less than 18 "<<endl;
+    }
+}
+
+-----------------------------------------x-------------------------------x-----------------------------
