@@ -1283,3 +1283,111 @@ int main()
     B b1;
     b1.fun();
 }
+
+
+----------------------------x------------------------x--------------------------
+Strings:-string is something that is enclosed with double quotes "Yasir ali".As well as we call it a combination of characters.In c++ string is a class which helps us in implementing strings.In order to use strings,we need to include string header file.At the end of every string,'\0' character is placed by the compiler that indicates the end of the string.
+
+lets implement string:-
+
+#include<iostream>
+#include<string>
+using namespace std;
+int main()
+{
+    //declaring a string variable.
+    string name="Shariqua hazra";
+    cout<<"The value inside name is "<<name<<endl;
+}
+
+lets discuss some of the functions of strings:-
+
+1)length():-This function gives the size of the string.
+#include<iostream>
+#include<string>
+using namespace std;
+int main()
+{
+    string name="manchester united";
+    cout<<"The size of the string is "<<name.length();
+}
+The output of the above code will be 17 as we have used length function that is giving the count of characters (i.e 17).
+
+2)resize():-It helps in growing and shrinking the string with the given size.
+
+#include<iostream>
+#include<string>
+using namespace std;
+int main()
+{
+    string name="manchester united";
+    name.resize(15);
+    cout<<"The string after resizing is "<<name;
+}
+
+The output of the above code will be manchester unit as we have used resize function by giving the size as 15,so,in output we will get only 15 characters of string.
+
+3)begin():-using begin() function,we get the address of first character of string.
+4)end():-using end() function,we get the address of that position that is present after the address of last character.
+
+#include<iostream>
+#include<string>
+using namespace std;
+int main()
+{
+    string s="manchester united";
+    //begin function and end function
+    string::iterator i;
+    for(i=s.begin();i!=s.end();i++)
+    {
+        cout<<*i;
+    }
+}
+
+5)swap():-This swap function helps in swapping the values between 2 strings.
+
+#include<iostream>
+#include<string>
+using namespace std;
+int main()
+{
+    string s1="Pritam singh";
+    string s2="Raj singh";
+    cout<<"Before swapping,the value of s1 is "<<s1<<" and the value of s2 is "<<s2<<endl;
+    s1.swap(s2);
+    cout<<"after swapping,the value of s1 is "<<s1<<" and the value of s2 is "<<s2<<endl;
+}
+
+6)rbegin():-This function is the opposite of begin() function.Just like begin() function keeps the address of first character,rbegin() keeps the address of last character.
+
+7)rend():-This function is the opposite of end() function.Just like end() function keeps the address of that position that is present after the address of last character,rend() function keeps the address of that position that is present before the address of first character.
+
+#include<iostream>
+#include<string>
+using namespace std;
+int main()
+{
+    string s="jasraj kaur";
+    string::reverse_iterator i;   
+    i=s.rend();
+    i--;
+    for(i;i>=s.rbegin();i--)
+    {
+        cout<<*i;
+    
+    }
+}
+
+8)append():-This function helps in concatenating two strings.
+
+#include<iostream>
+#include<string>
+using namespace std;
+int main()
+{
+    string s1="Zainab ahmad";
+    string s2="shariqua hazra";
+    s1.append(s2); //string s2 will be added at the end of string s1.
+    cout<<"The string after concatenating is "<<s1<<endl;
+}
+
