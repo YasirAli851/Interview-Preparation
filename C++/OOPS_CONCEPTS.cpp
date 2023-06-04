@@ -1391,3 +1391,37 @@ int main()
     cout<<"The string after concatenating is "<<s1<<endl;
 }
 
+Streams and file handling:-
+streams:-streams is considered as a base/parent class for all the derived class(istream,ostream and more).
+
+File handling:-File handling is a concept through which we read the contents(binary,text and executable) of file in our program and write the contents(binary,text and executable) from our program in the file.
+
+Reading from a file:-
+#include<iostream>
+#include<fstream>
+using namespace std;
+int main()
+{
+    string s;
+    ifstream i("fileHandling.txt"); /* We have a text inside a file named "fileHandling.txt". and with the help of the object of ifstream class named "i",we are able to access the content of that file as i have passed the name/path of the file as an argument while creating ifstream class's object "i". */
+    getline(i,s); /* We have used getline because the text is space separated in fileHandling.txt file.One thing to be noted here is that inside getline i have passed ifstream's object "i" because we are accessing the contents of file and saving those contents in a string variable called "s" and then printing the content of the file with the help of "s"*/
+    cout<<"The content in the fileHandling.txt file is "<<s<<endl;
+    i.close();//closing the file.
+}
+
+writing to a file
+
+#include<iostream>
+#include<fstream>
+using namespace std;
+int main()
+{
+    string s;
+    cout<<"enter the name of your college "<<endl;
+    cin>>s;
+    ofstream o("fileHandling.txt"); /* We have a file named "fileHandling.txt". and with the help of the object of ofstream class named "o",we are able to write the content of our program on that file as i have passed the name/path of the file as an argument while creating ofstream class's object "o". */
+    o<<s; /* in this line i have written "o" then insertion operator(<<) and then string data type called "s" (o<<s) and this will help us to write the content on fileHandling.txt file as i have used ofstream class's object that is having the name/path of fileHandling.txt file and then i have written "s" after insertion operator so that the content of string s must be written inside fileHandling.txt file.
+    */
+    o.close();//closing the file.
+}
+
