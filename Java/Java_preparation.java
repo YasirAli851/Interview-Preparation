@@ -1,5 +1,5 @@
-1)//public and private access specifiers in java
-
+/* public and private access specifiers in java */
+/* 
 import java.util.*;
 class student
 {
@@ -29,6 +29,9 @@ class student
     }
 }
 
+*/
+
+/*
 public class Main {
     public static void main(String [] args )
     {
@@ -38,10 +41,11 @@ public class Main {
     
     }
 }
+*/
 
+/* 
 2)CONSTRUCTORS:-
 
-Default constructo:
 //default constructor
 
 import java.util.*;
@@ -75,52 +79,11 @@ public class Main {
     
     }
 }
-----------------------x--------------------------------x--------------------------
+*/
+/*----------------------x--------------------------------x--------------------------*/
 
-Non parameterised constructor:
-
-//non parameterised  constructor
-
-import java.util.*;
-class student
-{
-    Scanner sc=new Scanner(System.in);
-    private int roll;
-    private String name;
-    private int adm_no;
-    private String section;
-    student()
-    {
-        System.out.println("non parameterised constructor called ");
-        roll=10;
-        name="ayushi";
-        adm_no=123;
-        section="B";
-    }
-    public void show()
-    {
-        System.out.println("The roll of the student  is "+roll);
-        System.out.println("The name of the student is "+name);
-        System.out.println("The admission number of the student is "+adm_no);
-        System.out.println("The section of the student is "+section);
-    }
-}
-
-public class Main {
-    public static void main(String [] args )
-    {
-        student s=new student();
-        s.show();
-    
-    }
-}
-
-
---------------------------X--------------------------------X----------------------------------
-
-Parameterised constructor
-
-//parameterised  constructor
+/* 
+parameterised  constructor
 
 import java.util.*;
 class student
@@ -157,9 +120,11 @@ public class Main {
     
     }
 }
+*/
 
----------------------------x-----------------------------x----------------------------
+/*---------------------------x-----------------------------x----------------------------*/
 
+/* 
 Constructor overloading
 
 //constructor overloading
@@ -206,9 +171,11 @@ public class Main {
     
     }
 }
-----------------------------x------------------------------x------------------------------
 
-//copy constructor
+*/
+/*----------------------------x------------------------------x------------------------------ */
+/* 
+copy constructor
 import java.util.*;
 class student
 {
@@ -251,8 +218,9 @@ public class Main {
         
     }
 }
----------------------------------x----------------------------------x---------------------------
-
+*/
+/*---------------------------------x----------------------------------x---------------------------*/
+/* 
 Arrays of objects:-
 
 import java.util.*;
@@ -289,9 +257,11 @@ public class Main
 		}
 	}
 }
+*/
 
 
-------------------------------x-------------------------x--------------------------------x-------
+/*------------------------------x-------------------------x--------------------------------x-------*/
+/* 
 Inheritance:
 
 Single level inheritance:
@@ -325,9 +295,9 @@ public class Main
 	    m1.show();
 	}
 }
+*/
 
-
-
+/* 
 Multilevel inheritance:
 
 import java.util.*;
@@ -359,8 +329,9 @@ public class Main
 	}
 }
 
-
----------------------------x-------------------------------------x-------------------------
+*/
+/*---------------------------x-------------------------------------x-------------------------*/
+/* 
 Hierarchical inheritance:
 
 class grandfather
@@ -425,10 +396,17 @@ public class Main
 		d2.showdaughter2();
 	}
 }
----------------------------------------x---------------------------------x------------------------
 
+*/
+/*---------------------------------------x---------------------------------x------------------------*/
+/* 
 what is interface?
-interface is a group of related method with empty body.interface contains only those member functions whose body is not defined and must be implemented in the class in which the interface is implemented.In interface,when a data member is declared,the value of that data member cannot be changed because it contain final keyword in it.interface can inherit another interface.we can also achieve multiple inheritance using interface.
+interface is a group of related method with empty body.interface contains only those 
+member functions whose body is not defined and must be implemented in the class in 
+which the interface is implemented.In interface,when a data member is declared,the 
+value of that data member cannot be changed because it contain final keyword in it.
+interface can inherit another interface.we can also achieve multiple inheritance 
+using interface.
 
 An example of interface with code:
 
@@ -451,7 +429,10 @@ public class Main{
     }
 }
 
-//Multiple inheritance using interface
+*/
+
+/* 
+Multiple inheritance using interface
 interface a
 {
     public void greet();
@@ -484,8 +465,10 @@ public class Main{
         c1.greet3();
     }
 }
+*/
 
------------------------------------x----------------x---------------
+/*-----------------------------------x----------------x---------------*/
+/* 
 Inheritance in interface:-
 
 interface a
@@ -520,9 +503,13 @@ public class Main{
         c1.greet3();
     }
 }
-------------------------------x---------------------x-----------------
+*/
+/*------------------------------x---------------------x-----------------*/
 
-Package:-package is used to combine more than one classes in a single unit called package.and by importing those packages in main class, we can access all the function of all the classes that is there inside the package.
+/* 
+Package:-package is used to combine more than one classes in a single unit called 
+package.and by importing those packages in main class, we can access all the function 
+of all the classes that is there inside the package.
 
 Class 1:-
 
@@ -576,8 +563,9 @@ public class demo{
 	}
 }  
 
+*/
 
------------------------x------------------------x--------------------
+/* 
 Program of function:
 public class Main
 {
@@ -617,9 +605,12 @@ public class Main
 	}
 }
 
+*/
 
------------------------x----------------------------------------x----------------------
 
+/*-----------------------x----------------------------------------x----------------------*/
+
+/* 
 Polymorphism:polymorphism means same name but different tasks and bodies.
 
 //function overloading is an example of compile time polymorphism
@@ -652,8 +643,11 @@ public class Main
         fun(10,50.30,40);
 	}
 }
+*/
 
-//function overriding is an example of run time polymorphism.
+/* 
+
+function overriding is an example of run time polymorphism.
 class a
 {
     public void fun()
@@ -678,11 +672,12 @@ public class Main
     }
 }
 
-
----------------------------x---------------------------------x----------------------------
-
-Multithreading:-It is helpful for us in order achieve multitasking within a process.
+*/
+/*---------------------------x---------------------------------x----------------------------*/
+/* 
+Multithreading:-It is helpful for us in order to achieve multitasking within a process.
 There are two ways to achieve multithreading:
+
 1)by inheriting Thread class:
 
 class mythr1 extends Thread
@@ -758,6 +753,8 @@ public class Main
     }
 }
 
+*/
+/* 
 Thread life cycle:-
 
 1)new:-it means the object of the thread has been created which not started by calling start method.
@@ -771,8 +768,9 @@ the thread scheduler to run.
 
 5)Terminated:-run() method has been ended.
 
+*/
 
-
+/* 
 Constructors in thread:-
 Constructors with one argument:-
 class mythr extends Thread
@@ -794,7 +792,8 @@ public class Main
     }
 }
 
-
+*/
+/* 
 Constructors of thread with two arguments:-
 
 class mythr extends Thread
@@ -815,6 +814,9 @@ public class Main
     }
 }
 
+*/
+
+/* 
 THREAD PRIORITIES:-
 class mythread extends Thread
 {
@@ -844,6 +846,46 @@ public class thread {
     }
 }
 
+*/
+
+/*
+Thread Synchronization:-
+
+import java.util.*;
+class flight implements Runnable
+{
+	int seat=1;
+	public synchronized void run()
+	{
+		if(seat>0)
+		{
+			System.out.println("seat allocated to "+Thread.currentThread().getName());
+			--seat;
+			System.out.println("number of seats left is "+seat);
+		}
+		else
+		{
+			System.out.println("cannot allocate seat to "+Thread.currentThread().getName());
+		}
+	}
+}
+class Main
+{
+	public static void main(String []args)
+	{
+		flight f=new flight();
+		Thread t1=new Thread(f,"rohit");
+		Thread t2=new Thread(f,"shipra");
+		Thread t3=new Thread(f,"sanket");
+		t1.start();
+		t2.start();
+		t3.start();
+	}
+
+}
+ */
+
+/* 
 Arrays:-It is used to store the elements contiguously of same data type.
 1D array:
 
@@ -916,8 +958,10 @@ public class two_d_arrays {
         }
     }
 }
+*/
+/*------------------------------x----------------------------------x-------------------------*/
 
-------------------------------x----------------------------------x-------------------------
+/* 
 Exception handling:-
 It is used to handle the abnormal condition that occurs during the runtime.
 
@@ -1023,8 +1067,9 @@ import java.util.*;
 
 
 Throw and throws:-
-Throw:-Throw keyword is used to throw the user defined or customized exception object to the JVM explicitly.
-
+throw:-
+i)throw keyword is used to throw the user defined or customized exception object to the JVM explicitly.
+ii)throw is also used to throw an exception explicitly/forcefully even if there is no any exception.
 Code:-
 
 import java.util.*;
@@ -1065,7 +1110,7 @@ public class throw_throws {
 }
 
 
-Throws:-Throws keyword is used when we doesn't want to handle the exception and try to send the exception to the JVM or caller.
+Throws:-Throws keyword is used when we doesn't want to handle the exception and try to send the exception to the JVM or caller. 
 
 public class throw_throws {
 
@@ -1077,7 +1122,10 @@ public class throw_throws {
     }
 }
 
-Final:-final keyword makes a variable constant.
+*/
+
+/* Final:-final keyword makes a variable constant. 
+
 Code:
 public class final_finally_finalize {
     public static void main(String[] args) {
@@ -1085,8 +1133,9 @@ public class final_finally_finalize {
         System.out.println(a);
     }
 }
+*/
 
-Finally:-Finally block is always executed whether an exception is handled or not.
+/* Finally:-Finally block is always executed whether an exception is handled or not.
 
 import java.util.*; 
 public class final_finally_finalize {
@@ -1109,13 +1158,16 @@ public class final_finally_finalize {
     }
 }
 
--------------------------------x--------------------------------x----------------------
+*/
 
-//what is abstract class?
-//ans:-It is a class whose object cannot be created and we declare a class as abstract with the help of abstaract keyword.
-//why we need abstract class?
-//ans:-1)when we dont need an object of a particular class then we make it abstract.
-//2)when we want to use same member function in various classes with different defination then we put those methods inside the abstract class and we define those abstract methods according to our need in the derived class.
+/*-------------------------------x--------------------------------x----------------------*/
+
+/*
+what is abstract class?
+ans:-It is a class whose object cannot be created and we declare a class as abstract with the help of abstaract keyword.
+why we need abstract class?
+ans:-1)when we dont need an object of a particular class then we make it abstract.
+2)when we want to use same member function in various classes with different defination then we put those methods inside the abstract class and we define those abstract methods according to our need in the derived class.
 
 
 abstract class animal
@@ -1167,10 +1219,14 @@ public class abs_cls {
     }
 }
 ---------------------------------x-------------------------x---------------------------------
-//static keyword:-it helps us to use the data member/member functions without creating the object
-//1)when data members and member functions is in the same class:-
-//if we make the data members/member function static then we dont need to create any object of that particular class to access those static member functions.
+
+*/
+
+/*static keyword:-it helps us to use the data member/member functions without creating the object
+1)when data members and member functions is in the same class:-
+if we make the data members/member function static then we dont need to create any object of that particular class to access those static member functions.
 Code:
+
 
 public class static_class {
     static public int a=10;
@@ -1183,10 +1239,13 @@ public class static_class {
         fun();
     }
 }
-//
-//2)when data member and member functions is in another class:-
-//a)we can access the static data members/member function with the help of class name.
+*/
+
+/*
+2)when data member and member functions is in another class:-
+a)we can access the static data members/member function with the help of class name.
 Code:-
+
 
 class A
 {
@@ -1203,7 +1262,11 @@ public class static_class {
         System.out.println("The addition is "+res);
     }
 }
-//b)if the data member and functions is not static then we have to create an object of that class and call the data member/member function with the help of the object of the class in which data member and member functions are declared.
+*/
+
+/*
+b)if the data member and functions is not static then we have to create an object of that class and call the data member/member function 
+with the help of the object of the class in which data member and member functions are declared. 
 Code:-
 
 class A
@@ -1222,8 +1285,63 @@ public class static_class {
       System.out.println("The addition is "+res);
     }
 }
-------------------------x----------------------------x---------------------
-//super keyword:- it basically helps us to refer parent class and its data members and member functions.
+
+*/
+
+/* 
+static block:It gets executed during the loading of class in class loader memory.
+
+class Main
+{
+	static int a=10;
+	static int b=20;
+	Main()
+	{
+		System.out.println("inside constructor main");
+	}
+	static
+	{
+		System.out.println("inside static block");
+		System.out.println(a+" "+b);
+	}
+	public static void main(String []args)
+	{
+		System.out.println("inside main");
+		Main m=new Main();
+	}
+}
+
+*/
+
+/*
+Instance block:-It is a block that gets executed during the creation of instance of
+a class.
+
+class Main
+{
+	int a=20;
+    int b=30;
+	Main()
+	{
+		System.out.println("inside constructor Main");
+	}
+	{
+		System.out.println("inside instance block");
+		System.out.println(a+" "+b);
+	}
+	public static void main(String []args)
+	{
+		System.out.println("inside main function");
+		Main m=new Main();
+	}
+}
+
+*/
+
+/*------------------------x----------------------------x---------------------*/
+
+/* 
+super keyword:- it basically helps us to refer parent class and its data members and member functions.
 
 SUPER KEYWORD WITH CONSTRUCTORS.
 
@@ -1290,9 +1408,6 @@ public class super_keyword{
 
 }
 
-
-
-
 SUPER KEYWORD WITH DATA MEMBERS:-
 
 class aeroplane
@@ -1315,8 +1430,6 @@ class super_keyword
         p.show();
     }
 }
-
-
 
 
 SUPER KEYWORD WITH MEMBER FUNCTIONS:-
@@ -1350,6 +1463,9 @@ class super_keyword
 }
 
 -----------------------------x-----------------------------x---------------------
+*/
+
+/* 
 
 THIS KEYWORD:-It is used to remove the ambiguity between parameter and data members of a class.
 
@@ -1426,6 +1542,10 @@ public class this_keyword {
 }
 -----------------------------------x----------------------------x------------------------
 
+*/
+
+/* 
+
 Applet:-applet is a special java program that runs on web browser.we can connect our java program with html with the help of applet.
 
 Applet lifecycle:-
@@ -1435,3 +1555,8 @@ Applet lifecycle:-
 3)paint():-It is a method that is related with graphics class of java.this paint() method contains graphics class a parameter.
 4)stop():-it will help the user to stop applet program.
 5)destroy():-it will destroy the applet that has been initialised initially.this destroy will automatically when we close the windows of appletviewer.
+
+
+hashing is the process of scrambling the piece of information or data beyond recognition
+
+*/
