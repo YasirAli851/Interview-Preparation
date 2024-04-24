@@ -20,6 +20,7 @@ class student
         section=sc.next();
     }
     public void show()
+
     {
         // take_deatils();
         System.out.println("The roll of the student  is "+roll);
@@ -27,6 +28,7 @@ class student
         System.out.println("The admission number of the student is "+adm_no);
         System.out.println("The section of the student is "+section);
     }
+
 }
 
 */
